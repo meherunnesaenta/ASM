@@ -4,14 +4,17 @@
 
 N DB ?
 a DB ' $'
-l DB 0ah,0dh,'The fectorial is : $' 
-
+l DB 0ah,0dh,'The reverse is : $' 
+k db 'The large number is : $'
 .CODE
    MAIN PROC 
        
        MOV AX,@DATA
        MOV DS,AX
-       
+
+       MOV AH,9
+       LEA DX,k
+       INT 21h
        MOV AH,1
        INT 21h
        MOV n,AL
